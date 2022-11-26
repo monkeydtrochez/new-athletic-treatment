@@ -6,12 +6,13 @@
     
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
+    import About from "../components/About.svelte";
 
     import { fetchStringValues } from "../services/stringValueService";
     import { initializeServices } from "../services/servicesService";
     import { initializeEmployees } from "../services/employeeService";
 
-    //import { stringValues } from "../stores/strings-store.js";
+    import { stringValues } from "../stores/strings-store.js";
 	
     
     const firebaseConfig = getVariables();
@@ -25,7 +26,7 @@
             await initializeServices(database); // products är nu services Tjänster
             await initializeEmployees(database); // clients är nu employees medarbetare
             await fetchStringValues(database).then((result) => {
-                //$stringValues = result;
+                $stringValues = result;
             }).catch((error) => {
                 console.log(error);
             });
@@ -39,9 +40,8 @@
         console.log(event.detail)
     }
 
-// TODO: Navigation
-// TODO: Fixa att läsa in stringvalues
-// TODO: Fix deployment! Prova med att skapa nytt repo.
+// TODO: Fixa services (products) component
+// TODO: Fixa employees (clients) component
 </script>
 
 <svelte:head>
@@ -56,6 +56,9 @@
     <HeroBanner />
 </section>
 
+<section class="about-us">
+    <About aboutAreaTexts={$stringValues.aboutAreaTexts}/>
+</section>
 
 <!-- <h1>Welcome to SvelteKit</h1>
     <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>

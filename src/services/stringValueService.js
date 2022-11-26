@@ -6,9 +6,10 @@ export async function fetchStringValues(database) {
     
     const result = await Promise.all([
         fetchAboutAreaTexts(dbRef),
-        fetchProductAreaTexts(dbRef),
-        fetchClientAreaTexts(dbRef),
-        fetchContactAreaTexts(dbRef)])
+        // fetchProductAreaTexts(dbRef),
+        // fetchClientAreaTexts(dbRef),
+        // fetchContactAreaTexts(dbRef)
+    ])
         .then(res => res.reduce((prev, curr) =>  ({...curr, ...prev})));
         
         return new Promise((resolve) => {
