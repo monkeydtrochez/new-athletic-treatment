@@ -2,6 +2,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 /** @type {import('vite').UserConfig} */
 const config = {
+	vite: {
+		define: {
+			'process.env': process.env
+		},
+	},
 	// vite: {
 	// 	resolve: {
 	// 	  alias: {
