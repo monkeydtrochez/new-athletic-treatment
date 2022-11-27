@@ -7,6 +7,8 @@
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
+    import Border from "../components/UI/Border.svelte";
+    import Footer from '..//components/UI/Footer.svelte';
 
     import { fetchStringValues } from "../services/stringValueService";
     import { initializeServices } from "../services/servicesService";
@@ -60,14 +62,8 @@
     <About aboutAreaTexts={$stringValues.aboutAreaTexts}/>
 </section>
 
-<!-- <h1>Welcome to SvelteKit</h1>
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-    
-    <div class="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-        <p class="text-3xl text-gray-700 font-bold mb-5">
-            Welcome!
-        </p>
-        <p class="text-gray-500 text-lg">
-            SvelteKit and Tailwind CSS in action
-        </p>
-    </div> -->
+<Border />
+
+<section class="footer">
+    <Footer on:navigate={navigateTo}/>
+</section>

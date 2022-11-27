@@ -25,17 +25,17 @@
 				</div>
 				<!-- Primary Navbar items -->
 				<div class="hidden md:flex items-center space-x-1 pr-4">
-					<a href="#about-us" class="py-4 px-2 text-gray-500 border-b-4 hover:border-green-500 font-semibold">Om oss</a>
-					<a href="#products" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Tjänster</a>
-					<a href="#clients" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Medarbetare</a>
-					<a href="#contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Kontakta oss</a>
-					<a href="https://www.bokadirekt.se/places/athletic-treatment-47446" class="py-4 px-2 text-green-500 font-semibold">Boka tid!</a>
+					<a href="#about-us" class="py-4 px-2 text-gray-500 hover:text-blue-600 font-semibold">Om oss</a>
+					<a href="#products" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Tjänster</a>
+					<a href="#clients" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Medarbetare</a>
+					<a href="#contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Kontakta oss</a>
+					<a href="https://www.bokadirekt.se/places/athletic-treatment-47446" class="py-4 px-2 text-blue-600 font-semibold">Boka tid!</a>
 				</div>
 				
 				<!-- Mobile menu button -->
 				<div class="md:hidden flex items-center">
 					<button class="outline-none mobile-menu-button" on:click={toggleMobileMenu}>
-						<svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+						<svg class=" w-6 h-6 text-gray-500 hover:text-blue-600 "
 						x-show="!showMenu"
 						fill="none"
 						stroke-linecap="round"
@@ -53,10 +53,10 @@
 	<!-- mobile menu -->
 	<div class="{showMobileMenu ? '' : 'hidden'} mobile-menu">
 		<ul class="">
-			<li><a href="#about-us" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300" on:click={toggleMobileMenu}>Om oss</a></li>
-			<li><a href="#products" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300" on:click={toggleMobileMenu}>Produkter</a></li>
-			<li><a href="#clients" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300" on:click={toggleMobileMenu}>Kunder</a></li>
-			<li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300" on:click={toggleMobileMenu}>Kontakta oss</a></li>
+			<li><a href="#about-us" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Om oss</a></li>
+			<li><a href="#products" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Produkter</a></li>
+			<li><a href="#clients" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Kunder</a></li>
+			<li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Kontakta oss</a></li>
 		</ul>
 	</div>
 </nav>
