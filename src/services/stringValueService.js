@@ -8,7 +8,7 @@ export async function fetchStringValues(database) {
         fetchAboutAreaTexts(dbRef),
         // fetchProductAreaTexts(dbRef),
         // fetchClientAreaTexts(dbRef),
-        // fetchContactAreaTexts(dbRef)
+        fetchContactAreaTexts(dbRef)
     ])
         .then(res => res.reduce((prev, curr) =>  ({...curr, ...prev})));
         

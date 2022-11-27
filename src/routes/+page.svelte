@@ -8,7 +8,9 @@
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
     import Border from "../components/UI/Border.svelte";
+    import Contact from "../components/Contact.svelte";
     import Footer from '..//components/UI/Footer.svelte';
+    import ContactForm from '../components/ContactForm.svelte';
 
     import { fetchStringValues } from "../services/stringValueService";
     import { initializeServices } from "../services/servicesService";
@@ -42,8 +44,18 @@
         console.log(event.detail)
     }
 
+    let showContactForm = false;
+    function openContactForm() {
+        showContactForm = true;
+    }
+    
+    function closeContactForm() {
+        showContactForm = false;
+    }
+
 // TODO: Fixa services (products) component
 // TODO: Fixa employees (clients) component
+// TODO: Fixa modalen!
 </script>
 
 <svelte:head>
@@ -64,6 +76,14 @@
 
 <Border />
 
+<section class="contact">
+    <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>
+</section>
+
 <section class="footer">
     <Footer on:navigate={navigateTo}/>
 </section>
+
+{#if showContactForm === true}
+<ContactForm rightBtnText="Skicka" leftBtnText="Avbryt" on:cancel={closeContactForm} />
+{/if}
