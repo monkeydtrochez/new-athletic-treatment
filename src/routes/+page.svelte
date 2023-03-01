@@ -7,17 +7,18 @@
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
+    import Services from "../components/Services.svelte"
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
-
+    
     import { fetchStringValues } from "../services/stringValueService";
     import { initializeServices } from "../services/servicesService";
     import { initializeEmployees } from "../services/employeeService";
-
+    
     import { stringValues } from "../stores/strings-store.js";
-	
+    
     
     const firebaseConfig = getVariables();
     console.log("Initialize app");
@@ -39,11 +40,11 @@
             console.log("Error occured: ", error);
         }
     });
-
+    
     function navigateTo(event) {
         console.log(event.detail)
     }
-
+    
     let showContactForm = false;
     function openContactForm() {
         showContactForm = true;
@@ -52,10 +53,10 @@
     function closeContactForm() {
         showContactForm = false;
     }
-
-// TODO: Fixa services (products) component
-// TODO: Fixa employees (clients) component
-// TODO: Fixa navigeringen!
+    
+    // TODO: Fixa services (products) component
+    // TODO: Fixa employees (clients) component
+    // TODO: Fixa navigeringen!
 </script>
 
 <svelte:head>
@@ -70,11 +71,15 @@
     <HeroBanner />
 </section>
 
-<section class="about-us" id="about-us">
+<section id="about-us">
     <About aboutAreaTexts={$stringValues.aboutAreaTexts}/>
 </section>
 
 <Border />
+
+<section id="services">
+    <Services servicesAreaTexts={$stringValues.servicesAreaTexts}/>
+</section>
 
 <section class="contact" id="contact">
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>
