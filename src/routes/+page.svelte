@@ -55,7 +55,7 @@
 
 // TODO: Fixa services (products) component
 // TODO: Fixa employees (clients) component
-// TODO: Fixa modalen!
+// TODO: Fixa navigeringen!
 </script>
 
 <svelte:head>
@@ -70,13 +70,13 @@
     <HeroBanner />
 </section>
 
-<section class="about-us">
+<section class="about-us" id="about-us">
     <About aboutAreaTexts={$stringValues.aboutAreaTexts}/>
 </section>
 
 <Border />
 
-<section class="contact">
+<section class="contact" id="contact">
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>
 </section>
 

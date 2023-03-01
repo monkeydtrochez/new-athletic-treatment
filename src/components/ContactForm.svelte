@@ -1,11 +1,11 @@
 <script>
     import {createEventDispatcher} from "svelte";
     import {notEmpty, isValidEmail} from "../helpers/formValidation";
-
+    
     import Modal from "./UI/Modal.svelte";
     import Button from "./UI/Button.svelte";
     import Input from "./UI/Input.svelte";
-
+    
     let dispatch = createEventDispatcher();
     
     export let leftBtnText;
@@ -13,42 +13,48 @@
     
     let name = "";
     let number = "";
-    let company = "";
     let emailAddress = "";
     
     $: isNameValid = !notEmpty(name);
     $: isNumberValid = !notEmpty(number);
-    $: isCompanyValid = !notEmpty(company);
     $: isEmailValid = !notEmpty(emailAddress) && isValidEmail(emailAddress);
-    $: isFormValid = isNameValid && isNumberValid && isCompanyValid && isEmailValid;
+    $: isFormValid = isNameValid && isNumberValid && isEmailValid;
     
     function closeModal() {
         dispatch('cancel');
     }
     
-    function submitForm() {
-        // TODO: submit form for vercel
-        // let myForm = document.getElementById("contactForm");
-        // let formData = new FormData(myForm);
-        // fetch("/", {
-        //     method: 'POST',
-        //     body: new URLSearchParams(formData).toString(),
-        //     headers: {"Content-Type": "application/x-www-form-urlencoded"}
-        // }).then(res => {
-        //     if(!res.ok) {
-        //         throw new Error("Something went wrong!", res);
-        //     }
-        // }).catch(err => {
-        //     console.log(err);
-        // });
-        
-        // dispatch('cancel');
+    async function submitForm() {
+        // TODO: update api key!
+        let myForm = document.getElementById("contactForm");
+        let formData = new FormData(myForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        dispatch('cancel');
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: json
+        });
+        const result = await response.json();
+        if (result.success) {
+            console.log("Form submitted");
+            dispatch('cancel');
+        } else {
+            console.log(result.message);
+        }
     }
 </script>
 
 <Modal on:cancel>
     <form class="w-full max-w-lg" id="contactForm" name="contact-form" on:submit|preventDefault={submitForm} >
-        <input type="hidden" name="form-name" value="contact-form" />
+        <input type="hidden" name="access_key" value="4b7e53a9-0908-4331-8a7e-aec8617b848b">
+        <input type="hidden" name="from_name" value="Athletic Treatment Webb">
+        <input type="hidden" name="subject" value="En intresseanmälan har skickats in!" />
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3 mb-6 md:mb-0">
                 <Input 
@@ -69,16 +75,6 @@
                 errorMessage="Du måste ange ett telefonnummer" 
                 isMandatoryField={true}
                 on:input={event => (number = event.target.value)} />
-            </div>
-            <div class="w-full px-3 mb-6 md:mb-0">
-                <Input 
-                id="company" 
-                label="Butik/Företag" 
-                value={company}
-                isValid={isCompanyValid} 
-                errorMessage="Du måste ange butik/företag" 
-                isMandatoryField={true}
-                on:input={event => (company = event.target.value)} />
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
