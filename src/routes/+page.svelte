@@ -1,8 +1,5 @@
 <script>
-    import {onMount} from 'svelte';
-    import { initializeApp } from 'firebase/app';
-    import { getDatabase } from "firebase/database";
-    import { getVariables } from "../helpers/environmentVariables";
+    /** @type {import('./$types').PageData} */
     
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
@@ -13,33 +10,11 @@
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
     
-    import { fetchStringValues } from "../services/stringValueService";
-    import { initializeServices } from "../services/servicesService";
-    import { initializeEmployees } from "../services/employeeService";
-    
     import { stringValues } from "../stores/strings-store.js";
     
-    
-    const firebaseConfig = getVariables();
-    console.log("Initialize app");
-    const app = initializeApp(firebaseConfig);
-    
-    onMount(async () => {
-        console.log("Initializing data");
-        try {
-            const database = getDatabase(app);
-            await initializeServices(database); // products är nu services Tjänster
-            await initializeEmployees(database); // clients är nu employees medarbetare
-            await fetchStringValues(database).then((result) => {
-                $stringValues = result;
-            }).catch((error) => {
-                console.log(error);
-            });
-            
-        } catch (error) {
-            console.log("Error occured: ", error);
-        }
-    });
+    export let data;
+
+    $stringValues = data.fetchedStringValues;
     
     function navigateTo(event) {
         console.log(event.detail)
