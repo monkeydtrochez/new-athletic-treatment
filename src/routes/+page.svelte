@@ -29,10 +29,15 @@
         showContactForm = false;
     }
     
-    // TODO: Fixa services (products) component
     // TODO: Fixa employees (clients) component
     // TODO: Fixa navigeringen!
 </script>
+
+<style>
+    :global(HTML) {
+        scroll-behavior: smooth;
+    }
+</style>
 
 <svelte:head>
 <title>Athletic Treatment</title>
