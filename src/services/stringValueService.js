@@ -6,7 +6,7 @@ export async function fetchStringValues(database) {
     
     const result = await Promise.all([
         fetchAboutAreaTexts(dbRef),
-        // fetchProductAreaTexts(dbRef),
+        fetchServicesAreaTexts(dbRef),
         // fetchClientAreaTexts(dbRef),
         fetchContactAreaTexts(dbRef)
     ])
@@ -67,15 +67,15 @@ export async function fetchStringValues(database) {
         });
     }
     
-    function fetchProductAreaTexts(dbRef) {
+    function fetchServicesAreaTexts(dbRef) {
         return new Promise((resolve, reject) => {
-            get(child(dbRef, 'productAreaTexts'))
+            get(child(dbRef, 'servicesAreaTexts'))
             .then((snapshot) => {
                 if (snapshot.exists()) {
-                    const productAreaTexts = snapshot.val();
-                    resolve({ productAreaTexts });
+                    const servicesAreaTexts = snapshot.val();
+                    resolve({ servicesAreaTexts });
                 } else {
-                    reject("Could not find any product area texts!");
+                    reject("Could not find any texts for the services area!");
                 }
             }).catch((error) => {
                 console.log("Error occured! ", error);
