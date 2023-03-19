@@ -11,7 +11,6 @@
     let trainingServices;
     
     unsubscribeServices = servicesStore.subscribe(data => {
-        console.log("loaded data", data);
         massageServices = data.massage;
         trainingServices = data.training;
     });

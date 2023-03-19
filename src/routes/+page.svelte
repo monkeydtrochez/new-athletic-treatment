@@ -5,15 +5,17 @@
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
     import Services from "../components/Services.svelte"
+    import Employees from "../components/Employees.svelte";
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
+    import CustomerReviews from "../components/CustomerReviews.svelte";
     
     import { stringValues } from "../stores/strings-store.js";
     
     export let data;
-
+    
     $stringValues = data.fetchedStringValues;
     
     function navigateTo(event) {
@@ -60,6 +62,18 @@
 <section id="services">
     <Services servicesAreaTexts={$stringValues.servicesAreaTexts}/>
 </section>
+
+<Border />
+
+<section id="employees">
+    <Employees employeesAreaTexts={$stringValues.employeesAreaTexts}/>
+</section>
+
+<Border />
+
+<!-- <section id="reviews">
+    <CustomerReviews/>
+</section> -->
 
 <section class="contact" id="contact">
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>

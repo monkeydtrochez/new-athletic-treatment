@@ -16,8 +16,8 @@ export async function load({}) {
     console.log("Initializing data");
     try {
         const database = getDatabase(app);
-        await initializeServices(database); // products är nu services Tjänster
-        await initializeEmployees(database); // clients är nu employees medarbetare
+        await initializeServices(database);
+        await initializeEmployees(database);
         await fetchStringValues(database).then((result) => {
             fetchedStringValues = result;
         }).catch((error) => {
@@ -31,5 +31,4 @@ export async function load({}) {
     return {
         fetchedStringValues: fetchedStringValues
     }
-    // TODO LOAD ALL DATA HERE!!!
 }
