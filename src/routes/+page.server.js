@@ -13,7 +13,6 @@ export async function load({}) {
 
     let fetchedStringValues;
     
-    console.log("Initializing data");
     try {
         const database = getDatabase(app);
         await initializeServices(database);

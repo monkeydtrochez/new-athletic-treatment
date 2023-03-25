@@ -2,8 +2,6 @@
     import NicklasImg from "../assets/nicklas-joabsson.jpg";
     
     export let employee = {};
-
-    console.log("skills: ", employee.skills)
 </script>
 
 <div class="w-1/2 mx-auto rounded-lg overflow-hidden" >

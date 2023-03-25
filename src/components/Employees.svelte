@@ -26,7 +26,7 @@
         <Employee employee={loadedEmployee}/>
         {/each}
         <p class="leading-normal mt-4 mb-4 font-bold text-gray-700 text-center">
-            {employeesAreaTexts.outro}
+            <a href="https://www.bokadirekt.se/places/athletic-treatment-47446" >{employeesAreaTexts.outro}</a>
         </p>
     </div>
 </div>
