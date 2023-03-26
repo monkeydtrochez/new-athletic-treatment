@@ -26,8 +26,9 @@
 				<!-- Primary Navbar items -->
 				<div class="hidden md:flex items-center space-x-1 pr-4">
 					<a href="#about-us" class="py-4 px-2 text-gray-500 hover:text-blue-600 font-semibold">Om oss</a>
-					<a href="#services" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Vårt erbjudande</a>
-					<a href="#employees" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Våra Medarbetare</a>
+					<a href="#services" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Tjänster</a>
+					<a href="#employees" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Medarbetare</a>
+					<a href="#reviews" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Kundernas ord</a>
 					<a href="#contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-600 transition duration-300">Kontakta oss</a>
 					<a href="https://www.bokadirekt.se/places/athletic-treatment-47446" class="py-4 px-2 text-blue-600 font-semibold">Boka tid!</a>
 				</div>

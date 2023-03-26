@@ -4,7 +4,10 @@
     import ProductImg3 from "../assets/massage-3.jpg";
     import ProductImg4 from "../assets/massage-4.jpg";
 
-    export let massageServices = {};
+    export let classicName;
+    export let classicDescription;
+    export let triggerName;
+    export let triggerDescription;
 </script>
 
 
@@ -14,15 +17,15 @@
         <img src="{ProductImg2}" alt="arm-tag" class="h-1/2 ml-px rounded-lg">
     </div>
     <div class="massage-classic mt-4">
-        <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageServices.classic.name}</h1>
+        <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{classicName}</h1>
         <p class="leading-normal mb-4 mx-2 text-gray-700">
-            {massageServices.classic.description}
+            {classicDescription}
         </p>
     </div>
     <div class="massage-trigger mt-4">
-        <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageServices.trigger.name}</h1>
+        <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{triggerName}</h1>
         <p class="leading-normal mb-4 mx-2 text-gray-700">
-            {massageServices.trigger.description}
+            {triggerDescription}
         </p>
     </div>
     <div class="w-1/2 h-1/2 flex justify-between">

@@ -1,6 +1,5 @@
 <script>
     /** @type {import('./$types').PageData} */
-    
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
@@ -8,16 +7,17 @@
     import Employees from "../components/Employees.svelte";
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
+    import CustomerReviews from "../components/CustomerReviews.svelte";
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
-    import CustomerReviews from "../components/CustomerReviews.svelte";
-    
     import { stringValues } from "../stores/strings-store.js";
     
     export let data;
     
+    let loadedServices = data.loadedServices;
+    let loadedEmployees = data.loadedEmployees;
     $stringValues = data.fetchedStringValues;
-    
+
     function navigateTo(event) {
         console.log(event.detail)
     }
@@ -30,9 +30,6 @@
     function closeContactForm() {
         showContactForm = false;
     }
-    
-    // TODO: Fixa employees (clients) component
-    // TODO: Fixa navigeringen!
 </script>
 
 <style>
@@ -60,20 +57,20 @@
 <Border />
 
 <section id="services">
-    <Services servicesAreaTexts={$stringValues.servicesAreaTexts}/>
+    <Services loadedServices={loadedServices} servicesAreaTexts={$stringValues.servicesAreaTexts}/>
 </section>
 
 <Border />
 
 <section id="employees">
-    <Employees employeesAreaTexts={$stringValues.employeesAreaTexts}/>
+    <Employees loadedEmployees={loadedEmployees} employeesAreaTexts={$stringValues.employeesAreaTexts}/>
 </section>
 
 <Border />
 
-<!-- <section id="reviews">
+<section id="reviews">
     <CustomerReviews/>
-</section> -->
+</section>
 
 <section class="contact" id="contact">
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>

@@ -11,13 +11,24 @@ export async function load({}) {
     const firebaseConfig = getVariables();
     const app = initializeApp(firebaseConfig);
 
+    let loadedServices;
+    let loadedEmployees;
     let fetchedStringValues;
     
-    console.log("Initializing data");
     try {
         const database = getDatabase(app);
-        await initializeServices(database);
-        await initializeEmployees(database);
+        await initializeServices(database).then((result) => {
+            loadedServices = result;
+        }).catch((error) => {
+            console.log(error);
+        });
+
+        await initializeEmployees(database).then((result) => {
+            loadedEmployees = result;
+        }).catch((error) => {
+            console.log(error);
+        });
+
         await fetchStringValues(database).then((result) => {
             fetchedStringValues = result;
         }).catch((error) => {
@@ -29,6 +40,8 @@ export async function load({}) {
     }
 
     return {
+        loadedServices: loadedServices,
+        loadedEmployees: loadedEmployees,
         fetchedStringValues: fetchedStringValues
     }
 }
