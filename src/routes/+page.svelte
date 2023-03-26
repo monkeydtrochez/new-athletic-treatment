@@ -30,7 +30,6 @@
     function closeContactForm() {
         showContactForm = false;
     }
-    // TODO rensa bort stores som inte används
 </script>
 
 <style>
