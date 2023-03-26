@@ -3,5 +3,5 @@
 </script>
 
 <div class="w-full">
-    <img src="{HeroImage}" alt="hero-banner" class="object-fill w-full h-full"/>
+    <img src="{HeroImage}" alt="hero-banner" class="h-1/6 w-full"/>
 </div>

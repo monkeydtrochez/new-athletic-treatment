@@ -15,7 +15,6 @@ export async function load({}) {
     let loadedEmployees;
     let fetchedStringValues;
     
-    console.log("Initializing data");
     try {
         const database = getDatabase(app);
         await initializeServices(database).then((result) => {
