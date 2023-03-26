@@ -1,46 +1,23 @@
 <script>
-    import {onMount} from 'svelte';
-    import { initializeApp } from 'firebase/app';
-    import { getDatabase } from "firebase/database";
-    import { getVariables } from "../helpers/environmentVariables";
-    
+    /** @type {import('./$types').PageData} */
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
     import Services from "../components/Services.svelte"
+    import Employees from "../components/Employees.svelte";
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
+    import CustomerReviews from "../components/CustomerReviews.svelte";
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
-    
-    import { fetchStringValues } from "../services/stringValueService";
-    import { initializeServices } from "../services/servicesService";
-    import { initializeEmployees } from "../services/employeeService";
-    
     import { stringValues } from "../stores/strings-store.js";
     
+    export let data;
     
-    const firebaseConfig = getVariables();
-    console.log("Initialize app");
-    const app = initializeApp(firebaseConfig);
-    
-    onMount(async () => {
-        console.log("Initializing data");
-        try {
-            const database = getDatabase(app);
-            await initializeServices(database); // products är nu services Tjänster
-            await initializeEmployees(database); // clients är nu employees medarbetare
-            await fetchStringValues(database).then((result) => {
-                $stringValues = result;
-            }).catch((error) => {
-                console.log(error);
-            });
-            
-        } catch (error) {
-            console.log("Error occured: ", error);
-        }
-    });
-    
+    let loadedServices = data.loadedServices;
+    let loadedEmployees = data.loadedEmployees;
+    $stringValues = data.fetchedStringValues;
+
     function navigateTo(event) {
         console.log(event.detail)
     }
@@ -53,11 +30,14 @@
     function closeContactForm() {
         showContactForm = false;
     }
-    
-    // TODO: Fixa services (products) component
-    // TODO: Fixa employees (clients) component
-    // TODO: Fixa navigeringen!
+    // TODO rensa bort stores som inte används
 </script>
+
+<style>
+    :global(HTML) {
+        scroll-behavior: smooth;
+    }
+</style>
 
 <svelte:head>
 <title>Athletic Treatment</title>
@@ -78,7 +58,19 @@
 <Border />
 
 <section id="services">
-    <Services servicesAreaTexts={$stringValues.servicesAreaTexts}/>
+    <Services loadedServices={loadedServices} servicesAreaTexts={$stringValues.servicesAreaTexts}/>
+</section>
+
+<Border />
+
+<section id="employees">
+    <Employees loadedEmployees={loadedEmployees} employeesAreaTexts={$stringValues.employeesAreaTexts}/>
+</section>
+
+<Border />
+
+<section id="reviews">
+    <CustomerReviews/>
 </section>
 
 <section class="contact" id="contact">

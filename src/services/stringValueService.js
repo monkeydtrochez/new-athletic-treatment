@@ -7,8 +7,8 @@ export async function fetchStringValues(database) {
     const result = await Promise.all([
         fetchAboutAreaTexts(dbRef),
         fetchServicesAreaTexts(dbRef),
-        // fetchClientAreaTexts(dbRef),
-        fetchContactAreaTexts(dbRef)
+        fetchContactAreaTexts(dbRef),
+        fetchEmployeesAreaTexts(dbRef)
     ])
         .then(res => res.reduce((prev, curr) =>  ({...curr, ...prev})));
         
@@ -34,15 +34,15 @@ export async function fetchStringValues(database) {
         });
     }
     
-    function fetchClientAreaTexts(dbRef) {
+    function fetchEmployeesAreaTexts(dbRef) {
         return new Promise((resolve, reject) => {
-            get(child(dbRef, 'clientAreaTexts'))
+            get(child(dbRef, 'employeesAreaTexts'))
             .then((snapshot) => {
                 if(snapshot.exists()) {
-                    const clientAreaTexts = snapshot.val();
-                    resolve({ clientAreaTexts });
+                    const employeesAreaTexts = snapshot.val();
+                    resolve({ employeesAreaTexts });
                 } else {
-                    reject("Could not find any client area texts!")
+                    reject("Could not find any employees area texts!")
                 }
             })
             .catch((error) => {
@@ -50,7 +50,7 @@ export async function fetchStringValues(database) {
             });
         });
     }
-    
+
     function fetchAboutAreaTexts (dbRef) {
         return new Promise((resolve, reject) => {
             get(child(dbRef, 'aboutAreaTexts'))
