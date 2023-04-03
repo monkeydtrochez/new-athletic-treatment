@@ -3,7 +3,8 @@
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
-    import Services from "../components/Services.svelte"
+    import Massage from "../components/Massage.svelte";
+    import MuayThai from "../components/MuayThai.svelte";
     import Employees from "../components/Employees.svelte";
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
@@ -17,7 +18,7 @@
     let loadedServices = data.loadedServices;
     let loadedEmployees = data.loadedEmployees;
     $stringValues = data.fetchedStringValues;
-
+    
     function navigateTo(event) {
         console.log(event.detail)
     }
@@ -56,8 +57,20 @@
 
 <Border />
 
-<section id="services">
-    <Services loadedServices={loadedServices} servicesAreaTexts={$stringValues.servicesAreaTexts}/>
+<section id="massage">
+    <Massage
+    introText={$stringValues.servicesAreaTexts.massageIntro}
+    outroText={$stringValues.servicesAreaTexts.massageOutro}
+    massageTypes={loadedServices.services.massage}/>
+</section>
+
+<Border />
+
+<section id="training">
+    <MuayThai
+    introText={$stringValues.servicesAreaTexts.trainingIntro}
+    outroText={$stringValues.servicesAreaTexts.trainingOutro}
+    trainingServices={loadedServices.services.training}/>
 </section>
 
 <Border />

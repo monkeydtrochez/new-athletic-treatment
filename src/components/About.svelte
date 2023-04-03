@@ -9,6 +9,12 @@
             <br/>
             {aboutAreaTexts.paragraph2}
         </p>
+        <p class="mt-2 mx-2">
+            {aboutAreaTexts.paragraph3}
+        </p>
+        <p class="mt-2 mx-2">
+            {aboutAreaTexts.paragraph4}
+        </p>
     </div>
 </div>
 
