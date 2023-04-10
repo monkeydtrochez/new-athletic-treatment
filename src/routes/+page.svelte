@@ -9,6 +9,7 @@
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
     import CustomerReviews from "../components/CustomerReviews.svelte";
+    import CustomerInfo from "../components/CustomerInfo.svelte";
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
     import { stringValues } from "../stores/strings-store.js";
@@ -81,6 +82,7 @@
 
 <Border />
 
+<!-- TODO lägg till knapar reviews -->
 <section id="reviews">
     <CustomerReviews/>
 </section>
@@ -89,8 +91,12 @@
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>
 </section>
 
+<section>
+    <CustomerInfo customerInfo={$stringValues.customerInfoArea} />
+</section>
+
 <section class="footer">
-    <Footer on:navigate={navigateTo}/>
+    <Footer on:openModal={openContactForm} on:navigate={navigateTo}/>
 </section>
 
 {#if showContactForm === true}

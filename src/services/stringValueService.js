@@ -8,7 +8,8 @@ export async function fetchStringValues(database) {
         fetchAboutAreaTexts(dbRef),
         fetchServicesAreaTexts(dbRef),
         fetchContactAreaTexts(dbRef),
-        fetchEmployeesAreaTexts(dbRef)
+        fetchEmployeesAreaTexts(dbRef),
+        fetchCustomerAreaTexts(dbRef)
     ])
         .then(res => res.reduce((prev, curr) =>  ({...curr, ...prev})));
         
@@ -76,6 +77,22 @@ export async function fetchStringValues(database) {
                     resolve({ servicesAreaTexts });
                 } else {
                     reject("Could not find any texts for the services area!");
+                }
+            }).catch((error) => {
+                console.log("Error occured! ", error);
+            });
+        });
+    }
+
+    function fetchCustomerAreaTexts(dbRef) {
+        return new Promise((resolve, reject) => {
+            get(child(dbRef, 'customerInfoArea'))
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const customerInfoArea = snapshot.val();
+                    resolve({ customerInfoArea });
+                } else {
+                    reject("Could not find any texts for the customer info area!");
                 }
             }).catch((error) => {
                 console.log("Error occured! ", error);

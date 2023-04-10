@@ -10,12 +10,14 @@
                 <img src={LogoImage} class="h-10 sm:h-20" alt="logo">
             </a></li>
             <li><a href="#about-us" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline"  >Om oss</a></li>
-            <li><a href="#products" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline"  >Tjänster</a></li>
-            <li><a href="#clients" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline" >Medarbetare</a></li>
-            <li><a href="#contact" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline" >Kontakt</a></li>
+            <li><a href="#massage" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline"  >Massage</a></li>
+            <li><a href="#training" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline" >Träning</a></li>
+            <li><a href="#employees" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline" >Medarbetare</a></li>
+            <li><a href="#reviews" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline" >Kundernas ord</a></li>
+            <li><a href="#contact" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline" >Kontakta oss</a></li>
             <li><a href="https://www.bokadirekt.se/places/athletic-treatment-47446" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 ">Boka tid</a></li>
         </ul>
-        <Social />
+        <Social on:openModal />
     </div>
     <p class="inline-block py-2 px-3 text-gray-700 text-xs"> ©2022 Athletic Treatment</p>
 </footer>
