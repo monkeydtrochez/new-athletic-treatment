@@ -56,12 +56,13 @@
 	<div class="{showMobileMenu ? '' : 'hidden'} mobile-menu">
 		<ul class="">
 			<li><a href="#about-us" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Om oss</a></li>
-			<li><a href="#products" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Produkter</a></li>
-			<li><a href="#clients" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Kunder</a></li>
+			<li><a href="#massage" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Massage</a></li>
+			<li><a href="#training" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Träning</a></li>
+			<li><a href="#employees" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Medarbetare</a></li>
+			<li><a href="#reviews" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Kundernas ord</a></li>
 			<li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Kontakta oss</a></li>
+			<li><a href="https://www.bokadirekt.se/places/athletic-treatment-47446" class="block text-sm px-2 py-4 hover:bg-blue-600 transition duration-300" on:click={toggleMobileMenu}>Boka tid!</a></li>
 		</ul>
 	</div>
 </nav>
 </div>
-
-

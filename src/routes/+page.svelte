@@ -44,6 +44,8 @@
 <title>Athletic Treatment</title>
 </svelte:head>
 
+<!-- TODO fixa lite margin på texterna i komponenterna -->
+
 <section class="navigation">
     <Navigation on:navigate={navigateTo}/>
 </section>

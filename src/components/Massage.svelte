@@ -42,6 +42,12 @@
                     {massageTypes.sports.description}
                 </p>
             </div>
+            <div class="massage-trigger mt-4">
+                <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageTypes.companyMassage.name}</h1>
+                <p class="leading-normal mb-4 text-gray-700">
+                    {massageTypes.companyMassage.description}
+                </p>
+            </div>
             <div class="w-1/2 h-1/2 flex justify-between">
                 <img src="{ProductImg3}" alt="arm-tag" class="h-1/2 mr-px rounded-lg">
                 <img src="{ProductImg4}" alt="arm-tag" class="h-1/2 ml-px rounded-lg">
