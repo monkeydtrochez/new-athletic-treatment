@@ -25,7 +25,6 @@
     }
     
     async function submitForm() {
-        // TODO: update api key!
         let myForm = document.getElementById("contactForm");
         let formData = new FormData(myForm);
         const object = Object.fromEntries(formData);
@@ -52,7 +51,7 @@
 
 <Modal on:cancel>
     <form class="w-full max-w-lg" id="contactForm" name="contact-form" on:submit|preventDefault={submitForm} >
-        <input type="hidden" name="access_key" value="4b7e53a9-0908-4331-8a7e-aec8617b848b">
+        <input type="hidden" name="access_key" value="13129a0b-783f-4434-b237-5c3f13c6b2f5">
         <input type="hidden" name="from_name" value="Athletic Treatment Webb">
         <input type="hidden" name="subject" value="En intresseanmälan har skickats in!" />
         <div class="flex flex-wrap -mx-3 mb-6">

@@ -81,6 +81,7 @@
 
 <Border />
 
+<!-- TODO lägg till knapar reviews -->
 <section id="reviews">
     <CustomerReviews/>
 </section>
@@ -89,8 +90,9 @@
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>
 </section>
 
+<!-- Fixa footer navigerinen så den matchar huvud -->
 <section class="footer">
-    <Footer on:navigate={navigateTo}/>
+    <Footer on:openModal={openContactForm} on:navigate={navigateTo}/>
 </section>
 
 {#if showContactForm === true}

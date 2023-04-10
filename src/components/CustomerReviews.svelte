@@ -23,12 +23,22 @@
     ]
     
     let index = 0
+    let intervalId;
     
     function next() {
         index = (index + 1) % carouselPhotos.length
     }
+
+    function pauseCarousel(){
+        clearInterval(intervalId);
+    }
+
+    function startCarousel(){
+        intervalId = setInterval(next, 5000)
+    }
+
     onMount(() => {
-        setInterval(next, 5000)
+       intervalId = setInterval(next, 5000)
     })
 </script>
 
@@ -37,7 +47,11 @@
 <div class="w-full flex justify-center mb-3">
     <div class="sm:w-4/12/12 md:w-6/12 lg:w-6/12 text-gray-900 mt-6 leading-normal current-img-slot">
         {#each [carouselPhotos[index]] as src (index)}
-        <img class="grid" transition:fade="{{ duration: 500 }}" {src} alt="" />	
+        <img class="grid" transition:fade="{{ duration: 500 }}" {src} alt=""
+         on:mouseenter={pauseCarousel}
+          on:mouseleave={startCarousel}
+           on:touchstart={pauseCarousel}
+           on:touchend={startCarousel} />	
         {/each}
     </div>
 </div>
