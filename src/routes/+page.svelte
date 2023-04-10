@@ -9,6 +9,7 @@
     import Border from "../components/UI/Border.svelte";
     import Contact from "../components/Contact.svelte";
     import CustomerReviews from "../components/CustomerReviews.svelte";
+    import CustomerInfo from "../components/CustomerInfo.svelte";
     import Footer from '..//components/UI/Footer.svelte';
     import ContactForm from '../components/ContactForm.svelte';
     import { stringValues } from "../stores/strings-store.js";
@@ -90,7 +91,10 @@
     <Contact contactAreaTexts={$stringValues.contactAreaTexts} on:click={openContactForm}/>
 </section>
 
-<!-- Fixa footer navigerinen så den matchar huvud -->
+<section>
+    <CustomerInfo customerInfo={$stringValues.customerInfoArea} />
+</section>
+
 <section class="footer">
     <Footer on:openModal={openContactForm} on:navigate={navigateTo}/>
 </section>
