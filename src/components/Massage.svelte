@@ -18,31 +18,31 @@
                 <img src="{ProductImg1}" alt="arm-tag" class="h-1/2 mr-px rounded-lg">
                 <img src="{ProductImg2}" alt="arm-tag" class="h-1/2 ml-px rounded-lg">
             </div>
-            <div class="massage-classic mt-4">
+            <div class="massage-classic mt-4 mx-2">
                 <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageTypes.classic.name}</h1>
                 <p class="leading-normal mb-4 text-gray-700">
                     {massageTypes.classic.description}
                 </p>
             </div>
-            <div class="massage-trigger mt-4">
+            <div class="massage-trigger mt-4 mx-2">
                 <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageTypes.trigger.name}</h1>
                 <p class="leading-normal mb-4 text-gray-700">
                     {massageTypes.trigger.description}
                 </p>
             </div>
-            <div class="massage-trigger mt-4">
+            <div class="massage-trigger mt-4 mx-2">
                 <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageTypes.cupping.name}</h1>
                 <p class="leading-normal mb-4 text-gray-700">
                     {massageTypes.cupping.description}
                 </p>
             </div>
-            <div class="massage-trigger mt-4">
+            <div class="massage-trigger mt-4 mx-2">
                 <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageTypes.sports.name}</h1>
                 <p class="leading-normal mb-4 text-gray-700">
                     {massageTypes.sports.description}
                 </p>
             </div>
-            <div class="massage-trigger mt-4">
+            <div class="massage-trigger mt-4 mx-2">
                 <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{massageTypes.companyMassage.name}</h1>
                 <p class="leading-normal mb-4 text-gray-700">
                     {massageTypes.companyMassage.description}

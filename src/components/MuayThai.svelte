@@ -13,7 +13,7 @@
         
         {#each trainingServices as training}
         {#if training.type === "muaythai"}
-        <div class="mt-4">
+        <div class="mt-4 mx-2">
             
             <h3 class="text-gray-700 font-bold text-left">Privat</h3>
             <p class="leading-normal mb-4 text-gray-700">
@@ -31,7 +31,7 @@
             </p>
         </div>
         {:else}
-        <div class="mt-4">
+        <div class="mt-4 mx-2">
             <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{training.title}</h1>
             <p class="leading-normal mb-4 text-gray-700">
                 {training.description}

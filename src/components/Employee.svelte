@@ -8,7 +8,7 @@
     <img src="{NicklasImg}" alt="employe-{employee.name}">
 </div>
 
-<div class="mt-4">
+<div class="mt-4 mx-2">
     <h1 class="uppercase tracking-wide mb-4 text-gray-700 font-bold text-left">{employee.name}</h1>
     <p class="leading-normal mb-4 text-gray-700">
         {employee.title}
