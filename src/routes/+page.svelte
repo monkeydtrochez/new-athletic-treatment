@@ -1,5 +1,6 @@
 <script>
     /** @type {import('./$types').PageData} */
+    import "../app.css";
     import HeroBanner from "../components/HeroBanner.svelte";
     import Navigation from "../components/UI/Navigation.svelte";
     import About from "../components/About.svelte";
